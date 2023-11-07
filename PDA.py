@@ -47,7 +47,6 @@ for line in temp:
         symbCount +=1
     elif currPos == 5:
         temp = re.split(">|,",line)
-        print(temp)
         trans[symbToIndex[temp[2]]][statesToIndex[temp[0]]][alphToIndex[temp[1]]] = [temp[3]]+[temp[4]]
     else:
         accept = accept + [line]
