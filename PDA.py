@@ -35,7 +35,7 @@ for line in temp:
         statesToIndex[line] = stateCount
         indexToStates = indexToStates + [line]
         stateCount += 1
-    if currPos == 2:
+    elif currPos == 2:
         start = line
     elif currPos == 3:
         alphToIndex[line] = alphCount
@@ -77,7 +77,7 @@ while(True):
     
     if test == '':
         test = 'ε'
-    
+
     if test == 'ε' and stack == 'Z' and currentState in accept:
         print(currentState+','+test+','+stack+' -> ACCEPT')
     else:
