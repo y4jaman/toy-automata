@@ -68,20 +68,34 @@ while(True):
         if currentState == None:
             break
 
-        if action == '$':
+        if action == '$':   
             stack = stack[1:]
         else:
             stack = action+stack[1:]
 
         test = test[1:]
     
-    if test == '':
-        test = 'ε'
+    if accept != []:
+        if test == '':
+            while trans[symbToIndex[stack[0]]][statesToIndex[currentState]][alphToIndex['$']][0] != None:
+                currentState = trans[symbToIndex[stack[0]]][statesToIndex[currentState]][alphToIndex['$']][0]
+            test = 'ε'
 
-    if test == 'ε' and stack == 'Z' and currentState in accept:
-        print(currentState+','+test+','+stack+' -> ACCEPT')
-    else:
-        if currentState != None:
-            print(currentState+','+test+','+stack+' -> REJECT')
+        if currentState in accept:
+            print(currentState+','+test+','+stack+' -> ACCEPT')
         else:
-            print('REJECT')
+            if currentState != None:
+                print(currentState+','+test+','+stack+' -> REJECT')
+            else:
+                print('REJECT')
+    else: 
+        if test == '':
+            test = 'ε'
+
+        if stack == 'Z' and test == 'ε':
+            print(currentState+','+test+','+stack+' -> ACCEPT')
+        else:
+            if currentState != None:
+                print(currentState+','+test+','+stack+' -> REJECT')
+            else:
+                print('REJECT')

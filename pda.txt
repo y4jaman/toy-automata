@@ -6,7 +6,6 @@ q0
 alphabet:
 0
 1
-2
 stack symbols:
 Z
 A
@@ -16,5 +15,3 @@ q0,0,A>q0,AA
 q0,1,A>q1,$
 q1,1,A>q1,$
 accept:
-q0
-q1
