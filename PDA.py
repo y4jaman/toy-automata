@@ -19,7 +19,7 @@ transCount = 0
 
 accept = []
 
-f = open("pda.txt","r")
+f = open("pda2.txt","r")
 temp = f.read().splitlines()
 f.close()
 
@@ -28,6 +28,7 @@ for line in temp:
     if line == 'states:' or line == 'start:' or line == 'alphabet:' or line == 'transitions:' or line == 'accept:' or line == 'stack symbols:':
         if line == 'transitions:':
             trans = [[[[None,None] for j in range(alphCount)] for i in range(stateCount)] for k in range(symbCount)]
+            print
         currPos += 1 
         continue
     if currPos == 1:
@@ -46,7 +47,8 @@ for line in temp:
         symbCount +=1
     elif currPos == 5:
         temp = re.split(">|,",line)
-        trans[statesToIndex[temp[0]]][alphToIndex[temp[1]]][symbToIndex[temp[2]]] = [temp[3]]+[temp[4]]
+        print(temp)
+        trans[symbToIndex[temp[2]]][statesToIndex[temp[0]]][alphToIndex[temp[1]]] = [temp[3]]+[temp[4]]
     else:
         accept = accept + [line]
 
@@ -61,8 +63,8 @@ while(True):
             break
 
         print(currentState+','+test+','+stack+' ->',end=' ')
-        action = trans[statesToIndex[currentState]][alphToIndex[test[0]]][symbToIndex[stack[0]]][1]
-        currentState = trans[statesToIndex[currentState]][alphToIndex[test[0]]][symbToIndex[stack[0]]][0]
+        action = trans[symbToIndex[stack[0]]][statesToIndex[currentState]][alphToIndex[test[0]]][1]
+        currentState = trans[symbToIndex[stack[0]]][statesToIndex[currentState]][alphToIndex[test[0]]][0]
 
         if currentState == None:
             break

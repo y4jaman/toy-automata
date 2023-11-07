@@ -1,0 +1,22 @@
+states:
+q0
+q1
+q2
+q3
+start:
+q0
+alphabet:
+0
+1
+2
+stack symbols:
+Z
+transitions:
+q0,0,Z>q1,Z
+q1,1,Z>q2,Z
+q2,0,Z>q3,Z
+q3,0,Z>q3,Z
+q3,1,Z>q3,Z
+q3,2,Z>q3,Z
+accept:
+q3

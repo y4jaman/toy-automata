@@ -6,6 +6,7 @@ q0
 alphabet:
 0
 1
+2
 stack symbols:
 Z
 A
