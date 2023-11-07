@@ -19,7 +19,7 @@ transCount = 0
 
 accept = []
 
-f = open("pda2.txt","r")
+f = open("pda.txt","r")
 temp = f.read().splitlines()
 f.close()
 
