@@ -1,5 +1,4 @@
 import re
-import numpy as np
 
 currPos = 0
 
@@ -19,7 +18,7 @@ transCount = 0
 
 accept = []
 
-f = open("pda.txt","r")
+f = open("pda3.txt","r")
 temp = f.read().splitlines()
 f.close()
 
@@ -28,7 +27,6 @@ for line in temp:
     if line == 'states:' or line == 'start:' or line == 'alphabet:' or line == 'transitions:' or line == 'accept:' or line == 'stack symbols:':
         if line == 'transitions:':
             trans = [[[[None,None] for j in range(alphCount)] for i in range(stateCount)] for k in range(symbCount)]
-            print
         currPos += 1 
         continue
     if currPos == 1:

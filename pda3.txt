@@ -20,8 +20,8 @@ p,1,Z,r,Z
 q,1,A>q,$
 q,1,Z>r,Z
 q,$,A>r,A
-r,1,A>r,A
-r,0,A>r,A
+r,1,A>r,$
+r,0,A>r,$
 r,1,Z>r,Z
 r,0,Z>r,Z
 accept:
