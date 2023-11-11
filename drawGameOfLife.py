@@ -1,6 +1,4 @@
 import tkinter as tk
-import os
-import time
 import copy
 
 
@@ -10,10 +8,6 @@ WIDTH = HEIGHT = GRID_SIZE * CELL_SIZE
 
 board = [[False for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
 nextBoard = [[False for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
-
-def update_delay(value):
-    global delay
-    delay = int(value)
 
 def checkStatus(A,x,y):
     aliveNeighbors = 0
@@ -83,7 +77,6 @@ def on_cell_click(event):
 
 def start_simulation():
     global board
-    global delay
     for i in range(len(board)):
         for j in range(len(board[0])):
             nextBoard[i][j] = checkStatus(board,i,j)
@@ -95,7 +88,7 @@ def start_simulation():
             else:
                 color = "white"
             canvas.itemconfig(cell_rectangles[i][j],fill=color)
-    root.after(delay,start_simulation)
+    root.after(1,start_simulation)
 
 root = tk.Tk()
 root.title("Game of Life")
@@ -120,7 +113,5 @@ start_button.pack(side=tk.LEFT, padx=5)
 
 stop_button = tk.Button(control_frame, text="Stop", command=exit)
 stop_button.pack(side=tk.LEFT, padx=5)
-
-delay = 1
 
 root.mainloop()
